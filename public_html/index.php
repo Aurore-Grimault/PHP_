@@ -15,8 +15,8 @@
                     <section class="col-md-9 mt-3">
                         <a class="btn btn-primary" role="button" href="index.php?add"> Ajouter des données </a> 
                         <?php echo $_GET["add"]?>
-                        <?php if (isset($_GET["add"])) include_once './includes/form.inc.html' ; ?>
-                        
+                        <?php if (isset($_GET["add"])) include_once './includes/form.inc.html' ; ?> 
+                    
                     </section>
 
                 </div>    
@@ -24,7 +24,7 @@
        
         </div>
     
-        <!-- Le pied de page -->
+        
         <footer id="pied_de_page">
             <?php include_once './includes/footer.inc.html'; ?>
         </footer>

@@ -1,36 +1,37 @@
 <form method="post" action="index.php">
-    
+
             <legend>Ajouter des données</legend>
             <div class="form-group">
                 <label for="inputLarge" class="col-sm-1 col-form-label"></label>
 
                 <div class="col-sm-4">
-                    <input class="form-control form-control-lg" type="text" placeholder="Prenom" id="inputLarge">
+                    <input class="form-control form-control-lg" type="text" placeholder="Prénom" id="inputLarge" placeholder="choisir" required>
                 </div>
 
                 <div class="col-sm-4">
-                    <input class="form-control form-control-lg" type="text" placeholder="Nom" id="inputLarge">
+                    <input class="form-control form-control-lg" type="text" placeholder="Nom" id="inputLarge" placeholder="choisir" required>
                 </div>
 
                 <div class="col-sm-4">
                     <label for="Age" class="form-label mt-4">Âge (18 à 70 ans)</label>
-                    <select class="form-select" id="Âge">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
+                    <input type="number" class="form-control" id="replyNumber" min="18" max="70" placeholder="choisir" required> </input>
                 </div>
 
                 <div class="col-sm-4">
-                    <input type="radio" name="sexe" value="f"> Femme
-                    <input type="radio" name="sexe" value="m"> Homme
+                    <label for="Taille" class="form-label mt-4">Taille (1,26m à 3m)</label>
+                    <input id="meters" type="number" name="meters" step="0.01" min="1.26" max="3.00" placeholder="choisir" required>
+                </div>
+
+                <div class="col-sm-4"> 
+                        <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+                        <label class="form-check-label" for="validationFormCheck2" value="f">Femme</label>
+                   
+                        <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
+                        <label class="form-check-label" for="validationFormCheck3" value="m">Homme</label>
                 </div>
 
             </div>
    
-            
         <button type="submit" class="btn btn-primary">Enregistrer les données</button>
         
 

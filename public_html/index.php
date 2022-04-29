@@ -46,6 +46,8 @@
                         ?> 
 
                         <?php if (isset($_GET['debugging'])) {
+                                echo '<h2 class=text-center> Débogage </h2> <br>';
+                                echo '<h3 class="fs-6">===> Lecture du tableau à l\'aide de la fonction print_r</h3><br>';
                                 print "<pre>";
                                 print_r($table);
                                 print "</pre>";
@@ -53,23 +55,47 @@
                             
                             elseif(isset($_GET['del'])) {session_destroy();
                                 echo '<p class="alert-success text-center py-3"> Données supprimées </p>';
-                            
                             }
 
                             elseif (isset($_GET['concatenation'])) {
-                                $first_name = "first_name";
-                                $last_name = "last_name";
-                                $user_age = "age";
+                                echo '<h2 class=text-center> Concaténation </h2> <br>';
+                                echo '<h3 class="fs-6">===> Construction d\'une phrase avec le contenu du tableau </h3><br>';
+                                echo $table ['civility'];
+                                echo $table ['first_name'];
+                                echo $table ['last_name'];
+                                echo $table ['age'];
+                                echo $table ['size'];
+
+                                // echo '<p>';
+                                // echo ($table['civility'] == 'women') ? 'Mme ' : 'Mr ';
+                                // echo $table['first_name'].' '.$table['last_name'];
+                                // echo '<br />J\'ai '.$table['age'].' ans et je mesure '.$table['size'].'m.</p>';
                                 
-                                echo "Je m'appelle $first_name $last_name et j'ai $user_age ans <br>";
-                                
+                                echo '<h3 class="fs-6">===> Construction d\'une phrase après MAJ du tableau </h3><br>';
+                                echo $table ['civility'];
+                                echo $table ['first_name'] = ucfirst($table['first_name']);
+                                echo $table ['last_name'] = strtoupper($table ['last_name']);
+                                echo $table ['age'];
+                                echo $table ['size'];
+
+                                echo '<h3 class="fs-6">===> Affichage d\'une virgule à la place du point pour la taille</h3><br>';
+                                echo $table ['civility'];
+                                echo $table ['first_name'];
+                                echo $table ['last_name'];
+                                echo $table ['age'];
+                                echo  $table['size'] = str_replace('.', ',', $table['size']);
                             }
-                    
-                            
-                            
-                    
-                    
-                            
+
+                            elseif (isset($_GET['loop'])) {
+                                echo '<h2 class=text-center> Boucle </h2> <br>';
+                                echo '<h3 class="fs-6">===> Lecture du tableau à l\'aide d\'une boucle foreach</h3><br>';
+
+                                foreach ($table as $cle => $valeur) {
+                                echo 'La clé ' . $cle . ' contient la valeur ' . $valeur . "\n";
+                                }
+
+                            }
+                      
                         ?>
                          
                     </section>

@@ -83,7 +83,7 @@
                                 echo $table ['first_name'];
                                 echo $table ['last_name'];
                                 echo $table ['age'];
-                                echo  $table['size'] = str_replace('.', ',', $table['size']);
+                                echo $table['size'] = str_replace('.', ',', $table['size']);
                             }
 
                             elseif (isset($_GET['loop'])) {
@@ -91,11 +91,25 @@
                                 echo '<h3 class="fs-6">===> Lecture du tableau à l\'aide d\'une boucle foreach</h3><br>';
 
                                 foreach ($table as $cle => $valeur) {
-                                echo 'La clé ' . $cle . ' contient la valeur ' . $valeur . "\n";
+                                echo '<div>La clé </div>' . $cle . ' contient la valeur ' . $valeur . "\n";
                                 }
 
                             }
                       
+                            elseif (isset($_GET['function'])) {
+                                echo '<h2 class=text-center> Fonction </h2> <br>';
+                                echo '<h3 class="fs-6">===> J\'utilise ma fonction readTable()</h3><br>';
+
+                                function readtable() {
+                                    $table = $_SESSION['table']; 
+                                    foreach ($table as $cle => $valeur) {
+                                    echo 'La clé ' . $cle . ' contient la valeur ' . $valeur . "\n";
+                                    }
+                                }
+                                readtable();
+                            }
+
+
                         ?>
                          
                     </section>

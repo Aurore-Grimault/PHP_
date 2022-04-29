@@ -65,12 +65,22 @@
                                 echo $table ['last_name'];
                                 echo $table ['age'];
                                 echo $table ['size'];
-
+                                //code Nicolas:
                                 // echo '<p>';
                                 // echo ($table['civility'] == 'women') ? 'Mme ' : 'Mr ';
                                 // echo $table['first_name'].' '.$table['last_name'];
                                 // echo '<br />J\'ai '.$table['age'].' ans et je mesure '.$table['size'].'m.</p>';
                                 
+                                
+                                //voir choix sexe:
+                                // extract($table);
+                                // if ($table['civility'] = 'Mme') {
+                                //     $sex = 'Femme';
+                                // } elseif ($table['civility'] = 'Mr'){
+                                //      $sex = 'Homme';
+                                // }
+
+
                                 echo '<h3 class="fs-6">===> Construction d\'une phrase après MAJ du tableau </h3><br>';
                                 echo $table ['civility'];
                                 echo $table ['first_name'] = ucfirst($table['first_name']);

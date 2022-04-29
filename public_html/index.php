@@ -4,23 +4,26 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-    <?php include_once './includes/head.inc.html'; ?>
+    <?php include_once './includes/head.inc.html'; 
+    ?>
        
     <body>
-        <?php include_once './includes/header.inc.html'; ?>
+        <?php include_once './includes/header.inc.html'; 
+        ?>
 
         <div class="container">
                 <div class="row">
                     <nav class="col-md-3 mt-3">
                         <a class="btn btn-outline-secondary w-100" role="button" href="./index.php"> Home </a> 
-                        <?php if(isset($table)) include_once './includes/ul.inc.php'; ?>
+                        <?php if(isset($table)) include_once './includes/ul.inc.php'; 
+                        ?>
                     </nav>
 
                     <section class="col-md-9 mt-3">
         
                         <?php if (isset($_GET["add"])) {include_once './includes/form.inc.html';}
 
-                            elseif (isset($_POST['enregistrer'])) {
+                            elseif (isset($_POST['enregistrer_données'])) {
                                 $first_name = $_POST['first_name'];
                                 $last_name = $_POST['last_name'];
                                 $user_age = $_POST['user_age'];
@@ -34,13 +37,27 @@
                                     "civility" => $user_sex,
                                 );
 
-                                $_SESSION["table"] = $table;
+                                $_SESSION['table'] = $table;
                                 echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
                             } 
                                                         
                             else {echo '<a class="btn btn-primary" role="button" href="./index.php?add"> Ajouter des données </a>';
                             } 
                         ?> 
+
+                        <?php if (isset($_GET['debugging'])) {
+                                print "<pre>";
+                                print_r($table);
+                                print "</pre>";
+                            
+                            }
+                    
+                    
+                            
+                    
+                    
+                            
+                        ?>
                          
                     </section>
 

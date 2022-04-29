@@ -49,10 +49,23 @@
                                 print "<pre>";
                                 print_r($table);
                                 print "</pre>";
+                            }
+                            
+                            elseif(isset($_GET['del'])) {session_destroy();
+                                echo '<p class="alert-success text-center py-3"> Données supprimées </p>';
                             
                             }
+
+                            elseif (isset($_GET['concatenation'])) {
+                                $first_name = "first_name";
+                                $last_name = "last_name";
+                                $user_age = "age";
+                                
+                                echo "Je m'appelle $first_name $last_name et j'ai $user_age ans <br>";
+                                
+                            }
                     
-                    
+                            
                             
                     
                     

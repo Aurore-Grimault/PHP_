@@ -66,7 +66,7 @@
                             
                             //test changement sexe
                                 // $user_sex='civility';
-                                // if ($user_sex == 'Femme') {
+                                // if ($user_sex == 'femme') {
                                 //     echo "Mme";
                                 // } else {
                                 //      echo "Mr";
@@ -79,20 +79,20 @@
                                 echo '<h2 class=text-center> Concaténation </h2> <br>';
                                 echo '<h3 class="fs-6">===> Construction d\'une phrase avec le contenu du tableau </h3>';
                                 echo '<p>';
-                                $civilité=($table['civility'] == 'femme') ? 'Mme ' : 'Mr ';
-                                echo $civilité .$table ['first_name']. ' ' .$table ['last_name'];
+                                $civility=($table['civility'] == 'femme') ? 'Mme ' : 'Mr ';
+                                echo $civility .$table ['first_name']. ' ' .$table ['last_name'];
                                 echo '<br> J\'ai '.$table['age'].' ans et je mesure '.$table['size'].' mètres.','</p>', '<br>';
                      
                                 echo '<h3 class="fs-6">===> Construction d\'une phrase après MAJ du tableau </h3>';
                                 echo '<p>';
-                                $civilité=($table['civility'] == 'femme') ? 'Mme ' : 'Mr ';
-                                echo $civilité .$table ['first_name']= ucfirst($table['first_name']). ' ' .$table ['last_name']= strtoupper($table ['last_name']);
+                                $civility=($table['civility'] == 'femme') ? 'Mme ' : 'Mr ';
+                                echo $civility .$table ['first_name']= ucfirst($table['first_name']). ' ' .$table ['last_name']= strtoupper($table ['last_name']);
                                 echo '<br> J\'ai '.$table['age'].' ans et je mesure '.$table['size'].' mètres.','</p>','<br>';
 
                                 echo '<h3 class="fs-6">===> Affichage d\'une virgule à la place du point pour la taille</h3>';
                                 echo '<p>';
-                                $civilité=($table['civility'] == 'user_sexf') ? 'Mme ' : 'Mr ';
-                                echo $civilité .$table ['first_name'];
+                                $civility=($table['civility'] == 'femme') ? 'Mme ' : 'Mr ';
+                                echo $civility .$table ['first_name'];
                                 echo '<br> J\'ai '.$table['age'].' ans et je mesure '.$table['size']= str_replace('.', ',', $table['size']).' mètres.','</p>', '<br>';
                             }
 

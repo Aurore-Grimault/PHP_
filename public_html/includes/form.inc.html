@@ -8,29 +8,34 @@
                     <input class="form-control form-control-lg" type="text" placeholder="Prénom" name="first_name" id="first_name" placeholder="choisir" required> </input>
                  
                 </div>
-
+                <br>
                 <div class="col-sm-4">
                     <input class="form-control form-control-lg" type="text" placeholder="Nom" name="last_name" id="last_name" placeholder="choisir" required> </input>
                 </div>
 
                 <div class="col-sm-4">
                     <label for="Age" class="form-label mt-4">Âge (18 à 70 ans)</label>
+                </div>
+                <div class="col-sm-4">
                     <input type="number" class="form-control" name="user_age" id="user_age" min="18" max="70" placeholder="choisir" required> </input>
+                    
                 </div>
 
                 <div class="col-sm-4">
                     <label for="Taille" class="form-label mt-4">Taille (1,26m à 3m)</label>
-                    <input id="meters" type="number" name="user_taille" step="0.01" min="1.26" max="3.00" placeholder="choisir" required> </input>
                 </div>
-
+                <div class="col-sm-4">
+                    <input id="meters" class="form-control" type="number" name="user_taille" step="0.01" min="1.26" max="3.00" placeholder="choisir" required> </input>
+                </div>
+                <br>
                 <div class="col-sm-4"> 
-                        <input type="radio" class="form-check-input" name="user_sex" required> </input>
+                        <input id= 'user_sex' type="radio" class="form-check-input" name="user_sex" required> </input>
                         <label class="form-check-label" for="Femme" value="f">Femme</label>
                    
-                        <input type="radio" class="form-check-input" name="user_sex" required> </input>
+                        <input id= 'user_sex' type="radio" class="form-check-input" name="user_sex" required> </input>
                         <label class="form-check-label" for="Homme" value="m">Homme</label>
                 </div>
-
+                <br>
             </div>
    
     <button name="enregistrer_données" type="submit" class="btn btn-primary">Enregistrer les données</button>

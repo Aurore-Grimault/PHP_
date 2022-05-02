@@ -54,49 +54,49 @@
         <section class="card col-md-4 mx-auto my-1">
             <p>Connaissances</p>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="HTML5">
                 <label class="form-check-label" for="flexCheckDefault">
                     HTML
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="CSS3">
                 <label class="form-check-label" for="flexCheckChecked">
                     CSS
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="Javascript">
                 <label class="form-check-label" for="flexCheckChecked">
                     Javascript
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="PHP">
                 <label class="form-check-label" for="flexCheckChecked">
                     PHP
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="MySQL">
                 <label class="form-check-label" for="flexCheckChecked">
                     MySQL
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="Bootsrap">
                 <label class="form-check-label" for="flexCheckChecked">
                     Bootstrap
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="Symfony">
                 <label class="form-check-label" for="flexCheckChecked">
                     Symfony
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="React">
                 <label class="form-check-label" for="flexCheckChecked">
                     React
                 </label>
@@ -120,9 +120,8 @@
                             
                 <!-- <input type="hidden" name="MAX_FILE_SIZE" value="20000" /> </input> -->
                 <label for="formFile" class="form-label">joindre une image (jpg ou png)</label>
-                <input class="form-control" type="file" id="formFile">
-           
-            
+                <input class="form-control" type="file" id="formFile" name="picture">
+               
         </section>
 
     </div>  

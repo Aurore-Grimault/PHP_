@@ -129,10 +129,9 @@
                         <?php if (isset($_GET["addmore"])) {include_once './includes/form2.inc.php';}
                         ?>
 
-                        <?php echo '<a class="btn btn-secondary" role="button" href="./index.php?addmore">Ajouter plus de données</a>';
+                        <?php echo '<a class="btn btn-secondary" type="submit" role="button" href="./index.php?addmore">Ajouter plus de données</a>';
                         ?>
-                        
-                        
+                 
                         
 
                          

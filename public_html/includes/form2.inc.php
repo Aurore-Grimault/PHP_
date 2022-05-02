@@ -111,7 +111,7 @@
 
             <div>
                 <label for="date"> Date de naissance</label>
-                <input type="date" id="date"></input>
+                <input type="date" id="date" name="birthday" require></input>
             </div>
 
         </section>
@@ -124,6 +124,8 @@
            
             
         </section>
+
+    </div>  
 
     <button name="enregistrer_données" type="submit" class="btn btn-primary">Enregistrer les données </button>
 

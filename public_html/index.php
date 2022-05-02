@@ -41,15 +41,14 @@
                                 echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
                             } 
                                                         
-                            else {echo '<a class="btn btn-primary" role="button" href="./index.php?add"> Ajouter des données </a>';
-                            } 
-                        ?> 
+                          
 
-                        <!-- //Débogage -->
-                        <!-- //La fonction echo est pratique mais insuffisante dans certains cas. Elle ne peut pas afficher un tableau ni les caractéristiques d'un objet. Pour ça, "print_r" est plus avancé. Cette fonction affichera la valeur pour un entier, une chaine ou un réel et vous présentera de façon structurée un tableau ou un objet. 
-                        L'élément HTML <pre> représente du texte préformaté, généralement écrit avec une police à chasse fixe. Le texte est affiché tel quel, les espaces utilisés dans le document HTML seront retranscrits.-->
 
-                        <?php if (isset($_GET['debugging'])) {
+                            // <!-- //Débogage -->
+                             // <!-- //La fonction echo est pratique mais insuffisante dans certains cas. Elle ne peut pas afficher un tableau ni les caractéristiques d'un objet. Pour ça, "print_r" est plus avancé. Cette fonction affichera la valeur pour un entier, une chaine ou un réel et vous présentera de façon structurée un tableau ou un objet. 
+                            // L'élément HTML <pre> représente du texte préformaté, généralement écrit avec une police à chasse fixe. Le texte est affiché tel quel, les espaces utilisés dans le document HTML seront retranscrits.-->
+
+                            elseif (isset($_GET['debugging'])) {
                                 echo '<h2 class=text-center> Débogage </h2> <br>';
                                 echo '<h3 class="fs-6">===> Lecture du tableau à l\'aide de la fonction print_r()</h3><br>';
                                 print "<pre>";
@@ -122,7 +121,9 @@
                                 readtable(); //si pas fermée le texte n'apparaît pas.
                             }
 
-
+                            else {echo '<a class="btn btn-primary" role="button" href="./index.php?add"> Ajouter des données </a>';
+                            } 
+                            
                         ?>
                          
                     </section>

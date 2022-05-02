@@ -126,20 +126,58 @@
 
 
 
-                        <?php if (isset($_GET["addmore"])) {include_once './includes/form2.inc.php';}
-                        ?>
+                        <!-- //2ème bouton -->
 
                         <?php echo '<a class="btn btn-secondary" type="submit" role="button" href="./index.php?addmore">Ajouter plus de données</a>';
                         ?>
-                 
+
+
+                        <?php if (isset($_GET["addmore"])) {include_once './includes/form2.inc.php';}
                         
+                            elseif (isset($_POST['enregistrer_données2'])) {
+                                $first_name = $_POST['first_name'];
+                                $last_name = $_POST['last_name'];
+                                $user_age = $_POST['user_age'];
+                                $user_taille = $_POST['user_taille'];
+                                $user_sex = $_POST['user_sex'];
+                                $html = $_POST['html'];
+                                $css = $_POST['css'];
+                                $Javascript = $_POST['Javascript'];
+                                $php = $_POST['php'];
+                                $MySQL = $_POST['MySQL'];
+                                $Bootstrap = $_POST['Bootstrap'];
+                                $Symfony = $_POST['Symfony'];
+                                $React = $_POST['React'];
+                                $connaissances = $_POST['html']; $_POST['css']; $_POST['Javascript']; $_POST['php']; $_POST['MySQL']; $_POST['Bootstrap']; $_POST['Symfony']; $_POST['React'];
+                                $color = $_POST['color'];
+                                $birthday = $_POST['birthday'];
+                                            
+                                $table = array(
+                                    'first_name' => $first_name,
+                                    'last_name' => $last_name,
+                                    'age' => $user_age,
+                                    'size' => $user_taille,
+                                    'civility' => $user_sex,
+                                    'connaissances' => $html and $css and $Javascript and $php and $MySQL and $Bootstrap and $Symfony and $React,
+                                    'color' => $color,
+                                    'birthday' => $birthday,
+                                );
+
+                         
+
+                                $_SESSION['table'] = $table;
+                                echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
+                            } 
+                        
+                        
+                        
+                        
+                        ?>
+
+                        <!-- elseif (move_uploaded_file('picture', './upload')); -->
 
 
-            
-   
-
-
-
+                       
                     </section>
 
                 </div>   

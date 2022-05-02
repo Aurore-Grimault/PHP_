@@ -1,8 +1,5 @@
 <form method="post" action="index.php">
     
-    <p class="h1 text-center">Ajouter plus de données</p>
-
-
     <div class="row">
         <section class="card col-md-7 mx-auto my-1">    
             <div class="form-group">
@@ -52,27 +49,27 @@
 
 
         <section class="card col-md-4 mx-auto my-1">
-            <p>Connaissances</p>
+            <div>Connaissances</div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="HTML5">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="html">
                 <label class="form-check-label" for="flexCheckDefault">
-                    HTML
+                    HTML5
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="CSS3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="css">
                 <label class="form-check-label" for="flexCheckChecked">
-                    CSS
+                    CSS3
                 </label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="Javascript">
                 <label class="form-check-label" for="flexCheckChecked">
-                    Javascript
+                    JavaScript
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="PHP">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="php">
                 <label class="form-check-label" for="flexCheckChecked">
                     PHP
                 </label>
@@ -105,12 +102,14 @@
 
             <div>
                 <label for="color">Couleur préférée</label>
-                <input type="color" id="color"></input>
+                <br>
+                <input type="color" id="color" name="color" require></input>
             </div>
             <br>
 
             <div>
                 <label for="date"> Date de naissance</label>
+                <br>
                 <input type="date" id="date" name="birthday" require></input>
             </div>
 
@@ -121,12 +120,15 @@
                 <!-- <input type="hidden" name="MAX_FILE_SIZE" value="20000" /> </input> -->
                 <label for="formFile" class="form-label">joindre une image (jpg ou png)</label>
                 <input class="form-control" type="file" id="formFile" name="picture">
+                <input type="hidden" name="picture" value="20000" title="Permitted bytes per file." />
+             
+
                
         </section>
 
     </div>  
 
-    <button name="enregistrer_données" type="submit" class="btn btn-primary">Enregistrer les données </button>
+    <button name="enregistrer_données2" type="submit" class="btn btn-primary">Enregistrer les données </button>
 
 </form>
 

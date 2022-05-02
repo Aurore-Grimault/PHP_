@@ -42,8 +42,6 @@
                             } 
                                                         
                           
-
-
                             // <!-- //Débogage -->
                              // <!-- //La fonction echo est pratique mais insuffisante dans certains cas. Elle ne peut pas afficher un tableau ni les caractéristiques d'un objet. Pour ça, "print_r" est plus avancé. Cette fonction affichera la valeur pour un entier, une chaine ou un réel et vous présentera de façon structurée un tableau ou un objet. 
                             // L'élément HTML <pre> représente du texte préformaté, généralement écrit avec une police à chasse fixe. Le texte est affiché tel quel, les espaces utilisés dans le document HTML seront retranscrits.-->
@@ -121,10 +119,22 @@
                                 readtable(); //si pas fermée le texte n'apparaît pas.
                             }
 
-                            else {echo '<a class="btn btn-primary" role="button" href="./index.php?add"> Ajouter des données </a>';
+                            else {echo '<a class="btn btn-primary" role="button" href="./index.php?add">  Ajouter des données </a>';
                             } 
                             
                         ?>
+
+
+
+                        <?php if (isset($_GET["addmore"])) {include_once './includes/form2.inc.php';}
+                        ?>
+
+                        <?php echo '<a class="btn btn-secondary" role="button" href="./index.php?addmore">Ajouter plus de données</a>';
+                        ?>
+                        
+                        
+                        
+
                          
                     </section>
 

@@ -89,7 +89,11 @@
                                 echo 'A la ligne n°' . $num . ' correspond la clé ' . $cle . ' et contient ' . $valeur . '<br>'; $num ++ ;
                                 }
                                 echo '<br>';
+                     
                             }
+
+
+                            
                             //Fonction
                             elseif (isset($_GET['function'])) {
                                 echo '<h2 class=text-center> Fonction </h2> <br>';
@@ -102,6 +106,7 @@
                                         echo 'A la ligne n°' . $num . ' correspond la clé ' . $cle . ' et contient ' . $valeur . '<br>'; $num ++ ;
                                     }
                                     echo '<br>';
+                            
                                 }
                                 readtable(); //si pas fermée le texte n'apparaît pas.
                             }

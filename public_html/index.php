@@ -168,20 +168,42 @@
                                     'picture' => $_FILES,
                                 );
                                
-                                
+                             
 
+
+                              
                                 $_SESSION['table'] = $table;
                                 echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
+
+                                if ($_FILES['picture']['size'] > 200000) {
+                                echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>';
+                                $uploadOk = 0;
+                              }        
+
+                                if ($_FILES['picture']['type'] != 'image/png' && $_FILES['picture']['type'] != 'image/jpeg' && $_FILES['picture']['type'] != 'image/jpg')
+                                    {
+                                        echo '<p class="alert-danger text-center py-3"> Extension non prise en charge </p>';
+                                    }
+                                    
+                                    //   if ($_FILES['picture']['type'] != 'png') {
+                                    //     echo '<p class="alert-danger text-center py-3"> Extension non prise en charge </p>';
+                                    //     $uploadOk = 0;
+                                    //   }    
+
+                             
+                               
+                             
+
                             } 
                         
                           
-                                                                     
+                                                               
                                 
                     
 
 
-                    ?>
-                    <!--  -->
+                        ?>
+                    
 
                         
 

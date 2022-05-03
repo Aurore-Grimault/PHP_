@@ -40,8 +40,7 @@
                                 $_SESSION['table'] = $table;
                                 echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
                             } 
-                                                        
-                          
+
                             // <!-- //Débogage -->
                              // <!-- //La fonction echo est pratique mais insuffisante dans certains cas. Elle ne peut pas afficher un tableau ni les caractéristiques d'un objet. Pour ça, "print_r" est plus avancé. Cette fonction affichera la valeur pour un entier, une chaine ou un réel et vous présentera de façon structurée un tableau ou un objet. 
                             // L'élément HTML <pre> représente du texte préformaté, généralement écrit avec une police à chasse fixe. Le texte est affiché tel quel, les espaces utilisés dans le document HTML seront retranscrits.-->
@@ -50,27 +49,15 @@
                                 echo '<h2 class=text-center> Débogage </h2> <br>';
                                 echo '<h3 class="fs-6">===> Lecture du tableau à l\'aide de la fonction print_r()</h3><br>';
                                 print "<pre>";
-                                print_r($table);
+                                print_r(array_filter($table));
                                 print "</pre>";
                             }
                             
-
                             //Supprimer les données
                             elseif(isset($_GET['del'])) {session_destroy();
                                 echo '<p class="alert-success text-center py-3"> Données supprimées </p>';
                             }
                                 
-                            
-                            //test changement sexe
-                                // $user_sex='civility';
-                                // if ($user_sex == 'femme') {
-                                //     echo "Mme";
-                                // } else {
-                                //      echo "Mr";
-                                // }
-                              
-
-
                             //concaténation
                             elseif (isset($_GET['concatenation'])) {
                                 echo '<h2 class=text-center> Concaténation </h2> <br>';
@@ -124,18 +111,12 @@
                             
                         ?>
 
-
-
                         <!-- //2ème bouton -->
-
                         <?php echo '<a class="btn btn-secondary" type="submit" role="button" href="./index.php?addmore">Ajouter plus de données</a>';
                         ?>
 
-
                         <?php if (isset($_GET["addmore"])) {include_once './includes/form2.inc.php';}
                          
-
-                     
                             elseif (isset($_POST['enregistrer_données2'])) {
                                 $first_name = $_POST['first_name'];
                                 $last_name = $_POST['last_name'];
@@ -150,7 +131,6 @@
                                 $Bootstrap = $_POST['Bootstrap'];
                                 $Symfony = $_POST['Symfony'];
                                 $React = $_POST['React'];
-                                $connaissances = $_POST['connaissances']; 
                                 $color = $_POST['color'];
                                 $birthday = $_POST['birthday'];
                                 $picture = $_FILES['picture'];
@@ -161,18 +141,13 @@
                                     'age' => $user_age,
                                     'size' => $user_taille,
                                     'civility' => $user_sex,
-                                    'connaissances' => $connaissances,
+                                    'connnaissances' => $html, $css, $Javascript, $php, $MySQL, $Bootstrap, $Symfony, $React,
                                     'color' => $color,
                                     'birthday' => $birthday,
                                     'picture' => $_FILES,
                                 );
-      
-                        
-                                      
-                                   
 
-                          
-
+                           
 
                                 if ($_FILES['picture']['size'] > 200000) {
                                     echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>';
@@ -185,19 +160,21 @@
                                     }
                                     
                             
-                                        if(isset($_FILES['picture']))
-                                        {  
-                                                $dossier = './upload';
-                                                $fichier = basename($_FILES['picture']['name']);
-                                            if(move_uploaded_file($_FILES['picture']['tmp_name'], $dossier . $fichier)) 
-                                            {
-                                                echo '<p class="alert-success text-center py-3">Téléchargement effectué avec succès !</p>';
-                                            }
-                                            else 
-                                            {
-                                                echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';
-                                            }
+                                    if(isset($_FILES['picture'])) {
+                                     
+                                            $dossier = './upload';
+                                            $fichier = basename($_FILES['picture']['name']);
+
+                                        if(move_uploaded_file($_FILES['picture']['tmp_name'], $dossier . $fichier)){ 
+                                            
+                                            echo '<p class="alert-success text-center py-3">Téléchargement effectué avec succès !</p>';
                                         }
+
+                                        else {
+                                            
+                                            echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';
+                                        }
+                                    }
                                
                              
 
@@ -205,24 +182,11 @@
                                     echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';  
                             } 
                         
-                                                          
-                                
-                    
+
 
 
                         ?>
                     
-
-                        
-
-
-
-
-
-
-                        
-                        
-                        
 
                        
                     </section>
@@ -236,6 +200,5 @@
         </footer>
         
     </body>
-         
-   
+
 </html>

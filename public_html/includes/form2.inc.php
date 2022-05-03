@@ -1,6 +1,7 @@
 <form method="post" action="index.php" enctype="multipart/form-data">
     
     <div class="row">
+
         <section class="card col-md-7 mx-auto my-1">    
             <div class="form-group">
                 <label for="inputLarge" class="form-label mt-4"></label>
@@ -46,48 +47,46 @@
             </div>
         </section>
 
-
-
         <section class="card col-md-4 mx-auto my-1">
             <div>Connaissances</div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="HTML5"  name="connaissances">
+                <input class="form-check-input" type="checkbox" value="HTML5"  name="html">
                 <label class="form-check-label" for="flexCheckDefault">
                     HTML5
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="CSS3" name="connaissances">
+                <input class="form-check-input" type="checkbox" value="CSS3" name="css">
                 <label class="form-check-label" for="flexCheckChecked">
                     CSS3
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="JavaScript" name="connaissances">
+                <input class="form-check-input" type="checkbox" value="JavaScript" name="Javascript">
                 <label class="form-check-label" for="flexCheckChecked">
                     JavaScript
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="PHP" name="connaissances">
+                <input class="form-check-input" type="checkbox" value="PHP" name="php">
                 <label class="form-check-label" for="flexCheckChecked">
                     PHP
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="MySQL" name="connaissances">
+                <input class="form-check-input" type="checkbox" value="MySQL" name="MySQL">
                 <label class="form-check-label" for="flexCheckChecked">
                     MySQL
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="Bootstrap" name="connaissances">
+                <input class="form-check-input" type="checkbox" value="Bootstrap" name="Bootstrap">
                 <label class="form-check-label" for="flexCheckChecked">
                     Bootstrap
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="Symfony" name="connaissances">
+                <input class="form-check-input" type="checkbox" value="Symfony" name="Symfony">
                 <label class="form-check-label" for="flexCheckChecked">
                     Symfony
                 </label>
@@ -98,6 +97,7 @@
                     React
                 </label>
             </div>
+
             <br>
 
             <div>
@@ -105,6 +105,7 @@
                 <br>
                 <input type="color" id="color" name="color" require></input>
             </div>
+
             <br>
 
             <div>
@@ -117,8 +118,8 @@
 
         <section class="card col-md-11 mx-auto my-1">
                         
-                <label for="File" class="form-label" name="picture">Joindre une image (jpg ou png)</label>
-                <input class="form-control" type="file" name="picture">
+            <label for="File" class="form-label" name="picture">Joindre une image (jpg ou png)</label>
+            <input class="form-control" type="file" name="picture">
                    
         </section>
 

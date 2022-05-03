@@ -116,8 +116,7 @@
         </section>
 
         <section class="card col-md-11 mx-auto my-1">
-                            
-                <!-- <input type="hidden" name="MAX_FILE_SIZE" value="20000" /> </input> -->
+                        
                 <label for="File" class="form-label" name="picture">Joindre une image (jpg ou png)</label>
                 <input class="form-control" type="file" name="picture">
                    

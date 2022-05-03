@@ -133,10 +133,9 @@
 
 
                         <?php if (isset($_GET["addmore"])) {include_once './includes/form2.inc.php';}
-                            // print "<pre>";
-                            // print_r($table);
-                            // print "</pre>";}
-                        
+                         
+
+                     
                             elseif (isset($_POST['enregistrer_données2'])) {
                                 $first_name = $_POST['first_name'];
                                 $last_name = $_POST['last_name'];
@@ -167,37 +166,46 @@
                                     'birthday' => $birthday,
                                     'picture' => $_FILES,
                                 );
-                               
-                             
+      
+                        
+                                      
+                                   
 
+                          
 
-                              
-                                $_SESSION['table'] = $table;
-                                echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
 
                                 if ($_FILES['picture']['size'] > 200000) {
-                                echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>';
-                                $uploadOk = 0;
-                              }        
+                                    echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>';
+                                    $uploadOk = 0;
+                                }        
 
                                 if ($_FILES['picture']['type'] != 'image/png' && $_FILES['picture']['type'] != 'image/jpeg' && $_FILES['picture']['type'] != 'image/jpg')
                                     {
                                         echo '<p class="alert-danger text-center py-3"> Extension non prise en charge </p>';
                                     }
                                     
-                                    //   if ($_FILES['picture']['type'] != 'png') {
-                                    //     echo '<p class="alert-danger text-center py-3"> Extension non prise en charge </p>';
-                                    //     $uploadOk = 0;
-                                    //   }    
-
-                             
+                            
+                                        if(isset($_FILES['picture']))
+                                        {  
+                                                $dossier = './upload';
+                                                $fichier = basename($_FILES['picture']['name']);
+                                            if(move_uploaded_file($_FILES['picture']['tmp_name'], $dossier . $fichier)) 
+                                            {
+                                                echo '<p class="alert-success text-center py-3">Téléchargement effectué avec succès !</p>';
+                                            }
+                                            else 
+                                            {
+                                                echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';
+                                            }
+                                        }
                                
                              
 
+                                $_SESSION['table'] = $table;
+                                    echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';  
                             } 
                         
-                          
-                                                               
+                                                          
                                 
                     
 

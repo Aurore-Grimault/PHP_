@@ -133,6 +133,9 @@
 
 
                         <?php if (isset($_GET["addmore"])) {include_once './includes/form2.inc.php';}
+                            // print "<pre>";
+                            // print_r($table);
+                            // print "</pre>";}
                         
                             elseif (isset($_POST['enregistrer_données2'])) {
                                 $first_name = $_POST['first_name'];
@@ -148,9 +151,10 @@
                                 $Bootstrap = $_POST['Bootstrap'];
                                 $Symfony = $_POST['Symfony'];
                                 $React = $_POST['React'];
-                                $connaissances = $_POST['html']; $_POST['css']; $_POST['Javascript']; $_POST['php']; $_POST['MySQL']; $_POST['Bootstrap']; $_POST['Symfony']; $_POST['React'];
+                                $connaissances = $_POST['connaissances']; 
                                 $color = $_POST['color'];
                                 $birthday = $_POST['birthday'];
+                                $picture = $_FILES['picture'];
                                             
                                 $table = array(
                                     'first_name' => $first_name,
@@ -158,24 +162,37 @@
                                     'age' => $user_age,
                                     'size' => $user_taille,
                                     'civility' => $user_sex,
-                                    'connaissances' => $html and $css and $Javascript and $php and $MySQL and $Bootstrap and $Symfony and $React,
+                                    'connaissances' => $connaissances,
                                     'color' => $color,
                                     'birthday' => $birthday,
+                                    'picture' => $_FILES,
                                 );
-
-                         
+                               
+                                
 
                                 $_SESSION['table'] = $table;
                                 echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
                             } 
                         
-                        
-                        
-                        
-                        ?>
+                          
+                                                                     
+                                
+                    
 
-                        <!-- elseif (move_uploaded_file('picture', './upload')); -->
 
+                    ?>
+                    <!--  -->
+
+                        
+
+
+
+
+
+
+                        
+                        
+                        
 
                        
                     </section>

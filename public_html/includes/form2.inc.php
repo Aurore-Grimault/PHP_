@@ -1,4 +1,4 @@
-<form method="post" action="index.php">
+<form method="post" action="index.php" enctype="multipart/form-data">
     
     <div class="row">
         <section class="card col-md-7 mx-auto my-1">    
@@ -51,49 +51,49 @@
         <section class="card col-md-4 mx-auto my-1">
             <div>Connaissances</div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="html">
+                <input class="form-check-input" type="checkbox" value="HTML5"  name="connaissances">
                 <label class="form-check-label" for="flexCheckDefault">
                     HTML5
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="css">
+                <input class="form-check-input" type="checkbox" value="CSS3" name="connaissances">
                 <label class="form-check-label" for="flexCheckChecked">
                     CSS3
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="Javascript">
+                <input class="form-check-input" type="checkbox" value="JavaScript" name="connaissances">
                 <label class="form-check-label" for="flexCheckChecked">
                     JavaScript
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="php">
+                <input class="form-check-input" type="checkbox" value="PHP" name="connaissances">
                 <label class="form-check-label" for="flexCheckChecked">
                     PHP
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="MySQL">
+                <input class="form-check-input" type="checkbox" value="MySQL" name="connaissances">
                 <label class="form-check-label" for="flexCheckChecked">
                     MySQL
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="Bootsrap">
+                <input class="form-check-input" type="checkbox" value="Bootstrap" name="connaissances">
                 <label class="form-check-label" for="flexCheckChecked">
                     Bootstrap
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="Symfony">
+                <input class="form-check-input" type="checkbox" value="Symfony" name="connaissances">
                 <label class="form-check-label" for="flexCheckChecked">
                     Symfony
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="" name="React">
+                <input class="form-check-input" type="checkbox" value="React" name="connaissances">
                 <label class="form-check-label" for="flexCheckChecked">
                     React
                 </label>
@@ -118,12 +118,9 @@
         <section class="card col-md-11 mx-auto my-1">
                             
                 <!-- <input type="hidden" name="MAX_FILE_SIZE" value="20000" /> </input> -->
-                <label for="formFile" class="form-label">joindre une image (jpg ou png)</label>
-                <input class="form-control" type="file" id="formFile" name="picture">
-                <input type="hidden" name="picture" value="20000" title="Permitted bytes per file." />
-             
-
-               
+                <label for="File" class="form-label" name="picture">Joindre une image (jpg ou png)</label>
+                <input class="form-control" type="file" name="picture">
+                   
         </section>
 
     </div>  

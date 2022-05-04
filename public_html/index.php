@@ -21,7 +21,9 @@
 
                     <section class="col-md-9 mt-3">
         
-                        <?php if (isset($_GET["add"])) {include_once './includes/form.inc.html';}
+                        <?php if (isset($_GET["add"])) {include_once './includes/form.inc.html';
+                            }
+                       
 
                             elseif (isset($_POST['enregistrer_données'])) {
                                 $first_name = $_POST['first_name'];
@@ -152,40 +154,37 @@
                                     'picture' => $_FILES,
                                 );
 
-                                
-                           
 
                                 if ($_FILES['picture']['size'] > 200000) {
                                     echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>';
-                                                                          
+                                 
 
-                                    if ($_FILES['picture']['type'] != 'image/png' && $_FILES['picture']['type'] != 'image/jpeg' && $_FILES['picture']['type'] != 'image/jpg');
-                                    else{
-                                        echo '<p class="alert-danger text-center py-3"> Extension non prise en charge </p>';
-                                    }
-                                }  
-
+                                    if ($_FILES['picture']['type'] != 'image/png' && $_FILES['picture']['type'] != 'image/jpeg' && $_FILES['picture']['type'] != 'image/jpg') {
+                                        echo '<p class="alert-danger text-center py-3"> Extension ' .$_FILES['picture']['type']  .' non prise en charge </p>';
+                                    } 
+                     
                                     if(isset($_FILES['picture'])) {
-                                    $dossier = './upload';
-                                    $fichier = $_FILES['picture']['name'];}
+                                        $dossier = './upload';
+                                        $fichier = $_FILES['picture']['name'];
+                                    }
 
                                     if (move_uploaded_file($_FILES['picture']['tmp_name'], $dossier . $fichier)){ 
-                                            
                                         echo '<p class="alert-success text-center py-3">Téléchargement effectué avec succès !</p>';
-                                    }
-
-                                    else {
-                                        
+                                    } else {                                        
                                         echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';
                                     }
-
-                                    
-                                $_SESSION['table'] = $table;
-                                echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';   
-                                     
-                            }    
+                                }    
+                                else {
+                                    $_SESSION['table'] = $table;
+                                        echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
+                                    }   
+                                  
                                
-
+                                    
+                                            
+                            }   
+                               
+                        
                                  
                              
                         

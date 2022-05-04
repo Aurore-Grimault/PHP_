@@ -156,8 +156,8 @@
 
                                 if ($_FILES['picture']['size'] > 2000000) {
                                     echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>';
-                                }    
-                                elseif ($_FILES['picture']['type'] != 'image/png' && $_FILES['picture']['type'] != 'image/jpeg' && $_FILES['picture']['type'] != 'image/jpg') {
+                                    
+                                    if ($_FILES['picture']['type'] != 'image/png' && $_FILES['picture']['type'] != 'image/jpeg' && $_FILES['picture']['type'] != 'image/jpg') {
                                         echo '<p class="alert-danger text-center py-3"> Extension ' .$_FILES['picture']['type']  .' non prise en charge </p>';
                                     } 
                      
@@ -173,10 +173,10 @@
                                     }
 
                                  
-                                  
-                                $_SESSION['table'] = $table;
+                                }  
+                                else { $_SESSION['table'] = $table;
                                         echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
-                                    
+                                }    
                                             
                             }   
                                

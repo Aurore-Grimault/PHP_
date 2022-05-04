@@ -118,14 +118,16 @@
 
         <section class="card col-md-11 mx-auto my-1">
                         
-            <label for="File" class="form-label" name="picture">Joindre une image (jpg ou png)</label>
+            <label for="File" class="form-label" name="picture">Joindre une image (jpg ou png) </label>
             <input class="form-control" type="file" name="picture">
                    
         </section>
 
     </div>  
 
-    <button name="enregistrer_données2" type="submit" class="btn btn-primary">Enregistrer les données </button>
+    <br>
+
+    <button name="enregistrer_données2" type="submit" class="btn btn-primary col-md-3 mx-auto my-1">Enregistrer les données </button>
 
 </form>
 

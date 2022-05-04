@@ -122,7 +122,7 @@
                         <?php echo '<a class="btn btn-secondary" type="submit" role="button" href="./index.php?addmore">Ajouter plus de données</a>';
                         ?>
 
-                        <?php if (isset($_GET["addmore"])) {include_once './includes/form2.inc.php';}
+                        <?php if (isset($_GET["addmore"])) {echo '<h2 class=text-center> Ajouter plus de données </h2>';include_once './includes/form2.inc.php';}
                          
                             elseif (isset($_POST['enregistrer_données2'])) {
                                 $first_name = $_POST['first_name'];

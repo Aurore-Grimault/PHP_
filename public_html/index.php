@@ -88,14 +88,13 @@
                                 echo '<h3 class="fs-6">===> Lecture du tableau à l\'aide d\'une boucle foreach</h3>';
                                 $num=0;
                                 foreach ($table as $cle => $valeur) {
-                                echo 'A la ligne n°' . $num . ' correspond la clé ' . $cle . ' et contient ' . $valeur . '<br>'; $num ++ ;
+                                    echo 'A la ligne n°' . $num . ' correspond la clé ' . $cle . ' et contient ' . $valeur . '<br>'; $num ++ ;
+                                    
                                 }
                                 echo '<br>';
                      
                             }
 
-
-                            
                             //Fonction
                             elseif (isset($_GET['function'])) {
                                 echo '<h2 class=text-center> Fonction </h2> <br>';
@@ -155,11 +154,10 @@
                                 );
 
 
-                                if ($_FILES['picture']['size'] > 200000) {
+                                if ($_FILES['picture']['size'] > 2000000) {
                                     echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>';
-                                 
-
-                                    if ($_FILES['picture']['type'] != 'image/png' && $_FILES['picture']['type'] != 'image/jpeg' && $_FILES['picture']['type'] != 'image/jpg') {
+                                }    
+                                elseif ($_FILES['picture']['type'] != 'image/png' && $_FILES['picture']['type'] != 'image/jpeg' && $_FILES['picture']['type'] != 'image/jpg') {
                                         echo '<p class="alert-danger text-center py-3"> Extension ' .$_FILES['picture']['type']  .' non prise en charge </p>';
                                     } 
                      
@@ -173,13 +171,11 @@
                                     } else {                                        
                                         echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';
                                     }
-                                }    
-                                else {
-                                    $_SESSION['table'] = $table;
-                                        echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
-                                    }   
+
+                                 
                                   
-                               
+                                $_SESSION['table'] = $table;
+                                        echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
                                     
                                             
                             }   

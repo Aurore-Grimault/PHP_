@@ -23,7 +23,6 @@
         
                         <?php if (isset($_GET["add"])) {include_once './includes/form.inc.html';
                             }
-                       
 
                             elseif (isset($_POST['enregistrer_données'])) {
                                 $first_name = $_POST['first_name'];
@@ -88,8 +87,13 @@
                                 echo '<h3 class="fs-6">===> Lecture du tableau à l\'aide d\'une boucle foreach</h3>';
                                 $num=0;
                                 foreach ($table as $cle => $valeur) {
-                                    echo 'A la ligne n°' . $num . ' correspond la clé ' . $cle . ' et contient ' . $valeur . '<br>'; $num ++ ;
-                                    
+                                    if ($cle == 'picture') {
+                                        unset($value);
+                                        echo '<div>à la ligne n°' . $num . ' correspond la clé "' . $cle . '" et contient</div>';
+                                        echo "<img class='w-100' src='./upload/".$table['picture']['name']."'>"; 
+                                        } else {
+                                            echo 'A la ligne n°' . $num . ' correspond la clé ' . $cle . ' et contient ' . $valeur . '<br>'; $num ++ ;
+                                        }
                                 }
                                 echo '<br>';
                      
@@ -167,16 +171,12 @@
                                   
                                     elseif ($table['picture']['type'] != 'image/png' && $table['picture']['type'] != 'image/jpeg' && $table['picture']['type'] != 'image/jpg') {
                                         echo '<p class="alert-danger text-center py-3"> Extension ' .$_FILES['picture']['type']  .' non prise en charge </p>';
-                                        session_destroy();
-                                       
-                                        
+                                        session_destroy();  
                                     } 
-                                    
 
                                     elseif ($table['picture']['error']==4){
                                         echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';
                                         session_destroy();
- 
                                     } 
 
                                 else {
@@ -189,12 +189,9 @@
                                 $filtre =array_filter($table);   
                                 $_SESSION['table'] = $filtre;
                             }                
-                           
-                                   
 
                         ?>
- 
-                       
+   
                     </section>
 
                 </div>   

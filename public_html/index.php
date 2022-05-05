@@ -163,10 +163,8 @@
                                 if ($table['picture']['size'] > 2000000) {
                                     echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>'; 
                                     session_destroy();
-                                
                                 }   
                                   
-
                                     elseif ($table['picture']['type'] != 'image/png' && $table['picture']['type'] != 'image/jpeg' && $table['picture']['type'] != 'image/jpg') {
                                         echo '<p class="alert-danger text-center py-3"> Extension ' .$_FILES['picture']['type']  .' non prise en charge </p>';
                                         session_destroy();
@@ -188,8 +186,10 @@
                                     echo '<p class="alert-success text-center py-3"> Données sauvegardées <p>';
                                 }
                                 
+                                $filtre =array_filter($table);   
+                                $_SESSION['table'] = $filtre;
                             }                
-                                $_SESSION['table'] = $table;
+                           
                                    
 
                         ?>

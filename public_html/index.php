@@ -147,7 +147,14 @@
                                     'age' => $user_age,
                                     'size' => $user_taille,
                                     'civility' => $user_sex,
-                                    'connnaissances' => $html, $css, $Javascript, $php, $MySQL, $Bootstrap, $Symfony, $React,
+                                    'html' => $html, 
+                                    'css' => $css, 
+                                    'Javascript' => $Javascript, 
+                                    'php' => $php, 
+                                    'MySQL' => $MySQL, 
+                                    'Bootstrap' => $Bootstrap, 
+                                    'Symfonny' => $Symfony, 
+                                    'React' => $React,
                                     'color' => $color,
                                     'birthday' => $birthday,
                                     'picture' => $_FILES,
@@ -155,8 +162,9 @@
 
 
                                 if ($_FILES['picture']['size'] > 2000000) {
-                                    echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>';
-                                    
+                                echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>';   
+                                }  
+
                                     if ($_FILES['picture']['type'] != 'image/png' && $_FILES['picture']['type'] != 'image/jpeg' && $_FILES['picture']['type'] != 'image/jpg') {
                                         echo '<p class="alert-danger text-center py-3"> Extension ' .$_FILES['picture']['type']  .' non prise en charge </p>';
                                     } 
@@ -166,15 +174,14 @@
                                         $fichier = $_FILES['picture']['name'];
                                     }
 
-                                    if (move_uploaded_file($_FILES['picture']['tmp_name'], $dossier . $fichier)){ 
-                                        echo '<p class="alert-success text-center py-3">Téléchargement effectué avec succès !</p>';
-                                    } else {                                        
-                                        echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';
-                                    }
+                                    if (move_uploaded_file($_FILES['picture']['tmp_name'], $dossier . $fichier))
+                                    { echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';}
+                                    
 
                                  
-                                }  
-                                else { $_SESSION['table'] = $table;
+                                  
+                                
+                                else($_SESSION['table'] = $table);{
                                         echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
                                 }    
                                             

@@ -140,7 +140,7 @@
                                 $color = $_POST['color'];
                                 $birthday = $_POST['birthday'];
                                 $picture = $_FILES['picture'];
-                                            
+            
                                 $table = array(
                                     'first_name' => $first_name,
                                     'last_name' => $last_name,
@@ -157,46 +157,43 @@
                                     'React' => $React,
                                     'color' => $color,
                                     'birthday' => $birthday,
-                                    'picture' => $_FILES,
+                                    'picture' => $picture,
                                 );
 
+                                if ($table['picture']['size'] > 2000000) {
+                                    echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>'; 
+                                    session_destroy();
+                                
+                                }   
+                                  
 
-                                if ($_FILES['picture']['size'] > 2000000) {
-                                echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>';   
-                                }  
-
-                                    if ($_FILES['picture']['type'] != 'image/png' && $_FILES['picture']['type'] != 'image/jpeg' && $_FILES['picture']['type'] != 'image/jpg') {
+                                    elseif ($table['picture']['type'] != 'image/png' && $table['picture']['type'] != 'image/jpeg' && $table['picture']['type'] != 'image/jpg') {
                                         echo '<p class="alert-danger text-center py-3"> Extension ' .$_FILES['picture']['type']  .' non prise en charge </p>';
+                                        session_destroy();
+                                       
+                                        
                                     } 
-                     
-                                    if(isset($_FILES['picture'])) {
-                                        $dossier = './upload';
-                                        $fichier = $_FILES['picture']['name'];
-                                    }
-
-                                    if (move_uploaded_file($_FILES['picture']['tmp_name'], $dossier . $fichier))
-                                    { echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';}
                                     
 
-                                  
-                                  
+                                    elseif ($table['picture']['error']==4){
+                                        echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';
+                                        session_destroy();
+ 
+                                    } 
+
+                                else {
+                                    $dossier = "./upload/";
+                                    $fichier = $table['picture']['name'];
+                                    move_uploaded_file($table['picture']['tmp_name'], $dossier . $fichier);
+                                    echo '<p class="alert-success text-center py-3"> Données sauvegardées <p>';
+                                }
                                 
-                                   else ($_FILES['picture']['type']);  {
-                                        echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
-                                }    
-                                if($_SESSION['table'] = $table);            
-                            }   
-                               
-                        
-                                 
-                             
-                        
-
-
+                            }                
+                                $_SESSION['table'] = $table;
+                                   
 
                         ?>
-                    
-
+ 
                        
                     </section>
 

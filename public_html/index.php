@@ -178,13 +178,13 @@
                                     { echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';}
                                     
 
-                                 
+                                  
                                   
                                 
-                                else($_SESSION['table'] = $table);{
+                                   else ($_FILES['picture']['type']);  {
                                         echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
                                 }    
-                                            
+                                if($_SESSION['table'] = $table);            
                             }   
                                
                         

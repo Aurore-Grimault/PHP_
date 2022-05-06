@@ -21,8 +21,7 @@
 
                     <section class="col-md-9 mt-3">
         
-                        <?php if (isset($_GET["add"])) {include_once './includes/form.inc.html';
-                            }
+                        <?php if (isset($_GET["add"])) {include_once './includes/form.inc.html';}
 
                             elseif (isset($_POST['enregistrer_données'])) {
                                 $first_name = $_POST['first_name'];
@@ -43,9 +42,6 @@
                             } 
 
                             // <!-- //Débogage -->
-                             // <!-- //La fonction echo est pratique mais insuffisante dans certains cas. Elle ne peut pas afficher un tableau ni les caractéristiques d'un objet. Pour ça, "print_r" est plus avancé. Cette fonction affichera la valeur pour un entier, une chaine ou un réel et vous présentera de façon structurée un tableau ou un objet. 
-                            // L'élément HTML <pre> représente du texte préformaté, généralement écrit avec une police à chasse fixe. Le texte est affiché tel quel, les espaces utilisés dans le document HTML seront retranscrits.-->
-
                             elseif (isset($_GET['debugging'])) {
                                 echo '<h2 class=text-center> Débogage </h2> <br>';
                                 echo '<h3 class="fs-6">===> Lecture du tableau à l\'aide de la fonction print_r()</h3><br>';
@@ -91,24 +87,28 @@
                                         unset($value);
                                         echo '<div>à la ligne n°' . $num . ' correspond la clé "' . $cle . '" et contient</div>';
                                         echo "<img class='w-100' src='./upload/".$table['picture']['name']."'>"; 
-                                        } else {
+                                    } else {
                                             echo 'A la ligne n°' . $num . ' correspond la clé ' . $cle . ' et contient ' . $valeur . '<br>'; $num ++ ;
-                                        }
+                                    }
                                 }
                                 echo '<br>';
-                     
                             }
 
                             //Fonction
                             elseif (isset($_GET['function'])) {
                                 echo '<h2 class=text-center> Fonction </h2> <br>';
                                 echo '<h3 class="fs-6">===> J\'utilise ma fonction readTable()</h3> ';
-
                                 function readtable() {
                                     $table = $_SESSION['table']; 
                                     $num=0;
                                     foreach ($table as $cle => $valeur) {
-                                        echo 'A la ligne n°' . $num . ' correspond la clé ' . $cle . ' et contient ' . $valeur . '<br>'; $num ++ ;
+                                        if ($cle == 'picture') {
+                                            unset($value);
+                                            echo '<div>à la ligne n°' . $num . ' correspond la clé "' . $cle . '" et contient</div>';
+                                            echo "<img class='w-100' src='./upload/".$table['picture']['name']."'>"; 
+                                        } else {
+                                            echo 'A la ligne n°' . $num . ' correspond la clé ' . $cle . ' et contient ' . $valeur . '<br>'; $num ++ ;
+                                        }
                                     }
                                     echo '<br>';
                             
@@ -117,8 +117,7 @@
                             }
 
                             else {echo '<a class="btn btn-primary" role="button" href="./index.php?add">  Ajouter des données </a>';
-                            } 
-                            
+                            }    
                         ?>
 
                         <!-- //2ème bouton -->
@@ -163,29 +162,52 @@
                                     'birthday' => $birthday,
                                     'picture' => $picture,
                                 );
-
+                                
+                                //erreurs//
                                 if ($table['picture']['size'] > 2000000) {
                                     echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>'; 
                                     session_destroy();
                                 }   
-                                  
+
+                                    elseif ($table['picture']['error']== 4) {
+                                        echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';
+                                        session_destroy();
+                                    } 
+                                    
+                                    elseif ($_FILES['userfile']['error'] == 3) {   
+                                    echo 'Error 3';
+                                    session_destroy();
+                                    }
+
+                                    elseif ($_FILES['userfile']['error'] == 1) {   
+                                        echo 'Error 1';
+                                        session_destroy();
+                                    }
+
+                                    elseif ($_FILES['userfile']['error'] == 6) {   
+                                        echo 'Error 6';
+                                        session_destroy();
+                                    }
+
+                                    elseif ($_FILES['userfile']['error'] == 7) {   
+                                        echo 'Error 3';
+                                        session_destroy();
+                                    }
+
                                     elseif ($table['picture']['type'] != 'image/png' && $table['picture']['type'] != 'image/jpeg' && $table['picture']['type'] != 'image/jpg') {
                                         echo '<p class="alert-danger text-center py-3"> Extension ' .$_FILES['picture']['type']  .' non prise en charge </p>';
                                         session_destroy();  
                                     } 
 
-                                    elseif ($table['picture']['error']==4){
-                                        echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';
-                                        session_destroy();
-                                    } 
-
+                                    // sinon données sauvegardées //
                                 else {
                                     $dossier = "./upload/";
                                     $fichier = $table['picture']['name'];
                                     move_uploaded_file($table['picture']['tmp_name'], $dossier . $fichier);
                                     echo '<p class="alert-success text-center py-3"> Données sauvegardées <p>';
                                 }
-                                
+
+                                // pour la liste Home//
                                 $filtre =array_filter($table);   
                                 $_SESSION['table'] = $filtre;
                             }                

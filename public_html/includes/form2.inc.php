@@ -109,7 +109,7 @@
             <br>
 
             <div>
-                <label for="date"> Date de naissance</label>
+                <label for="date"> Date de naissance </label>
                 <br>
                 <input type="date" id="date" name="birthday" require></input>
             </div>

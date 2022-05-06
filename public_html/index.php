@@ -20,7 +20,8 @@
                     </nav>
 
                     <section class="col-md-9 mt-3">
-        
+
+                        <!-- //formulaire 1// -->
                         <?php if (isset($_GET["add"])) {include_once './includes/form.inc.html';}
 
                             elseif (isset($_POST['enregistrer_données'])) {
@@ -37,11 +38,12 @@
                                     'civility' => $user_sex,
                                 );
 
+                                // Données sauvegardées //
                                 $_SESSION['table'] = $table;
                                 echo '<p class="alert-success text-center py-3"> Données sauvegardées </p>';
                             } 
 
-                            // <!-- //Débogage -->
+                            //Débogage//
                             elseif (isset($_GET['debugging'])) {
                                 echo '<h2 class=text-center> Débogage </h2> <br>';
                                 echo '<h3 class="fs-6">===> Lecture du tableau à l\'aide de la fonction print_r()</h3><br>';
@@ -52,7 +54,7 @@
                             
                             //Supprimer les données
                             elseif(isset($_GET['del'])) {session_destroy();
-                                echo '<p class="alert-success text-center py-3"> Données supprimées </p>';
+                                echo '<p class="alert-success text-center py-3"> Données supprimées </p>'; 
                             }
                                 
                             //concaténation
@@ -113,105 +115,106 @@
                                     echo '<br>';
                             
                                 }
-                                readtable(); //si pas fermée le texte n'apparaît pas.
+                                readtable(); //si pas fermée le texte n'apparaît pas.//
                             }
 
+                            //Bouton ajouter des données//
                             else {echo '<a class="btn btn-primary" role="button" href="./index.php?add">  Ajouter des données </a>';
                             }    
                         ?>
 
                         <!-- //2ème bouton -->
-                        <?php echo '<a class="btn btn-secondary" type="submit" role="button" href="./index.php?addmore">Ajouter plus de données</a>';
-                        ?>
-
-                        <?php if (isset($_GET["addmore"])) {echo '<h2 class=text-center> Ajouter plus de données </h2>';include_once './includes/form2.inc.php';}
+                       
+                        <?php if (isset($_GET["addmore"])) {echo '<h2 class=text-center> Ajouter plus de données </h2>';include_once './includes/form2.inc.php'; }
                          
-                            elseif (isset($_POST['enregistrer_données2'])) {
-                                $first_name = $_POST['first_name'];
-                                $last_name = $_POST['last_name'];
-                                $user_age = $_POST['user_age'];
-                                $user_taille = $_POST['user_taille'];
-                                $user_sex = $_POST['user_sex'];
-                                $html = $_POST['html'];
-                                $css = $_POST['css'];
-                                $Javascript = $_POST['Javascript'];
-                                $php = $_POST['php'];
-                                $MySQL = $_POST['MySQL'];
-                                $Bootstrap = $_POST['Bootstrap'];
-                                $Symfony = $_POST['Symfony'];
-                                $React = $_POST['React'];
-                                $color = $_POST['color'];
-                                $birthday = $_POST['birthday'];
-                                $picture = $_FILES['picture'];
+                                elseif (isset($_POST['enregistrer_données2'])) {
+                                    $first_name = $_POST['first_name'];
+                                    $last_name = $_POST['last_name'];
+                                    $user_age = $_POST['user_age'];
+                                    $user_taille = $_POST['user_taille'];
+                                    $user_sex = $_POST['user_sex'];
+                                    $html = $_POST['html'];
+                                    $css = $_POST['css'];
+                                    $Javascript = $_POST['Javascript'];
+                                    $php = $_POST['php'];
+                                    $MySQL = $_POST['MySQL'];
+                                    $Bootstrap = $_POST['Bootstrap'];
+                                    $Symfony = $_POST['Symfony'];
+                                    $React = $_POST['React'];
+                                    $color = $_POST['color'];
+                                    $birthday = $_POST['birthday'];
+                                    $picture = $_FILES['picture'];
             
-                                $table = array(
-                                    'first_name' => $first_name,
-                                    'last_name' => $last_name,
-                                    'age' => $user_age,
-                                    'size' => $user_taille,
-                                    'civility' => $user_sex,
-                                    'html' => $html, 
-                                    'css' => $css, 
-                                    'Javascript' => $Javascript, 
-                                    'php' => $php, 
-                                    'MySQL' => $MySQL, 
-                                    'Bootstrap' => $Bootstrap, 
-                                    'Symfonny' => $Symfony, 
-                                    'React' => $React,
-                                    'color' => $color,
-                                    'birthday' => $birthday,
-                                    'picture' => $picture,
-                                );
+                                    $table = array(
+                                        'first_name' => $first_name,
+                                        'last_name' => $last_name,
+                                        'age' => $user_age,
+                                        'size' => $user_taille,
+                                        'civility' => $user_sex,
+                                        'html' => $html, 
+                                        'css' => $css, 
+                                        'Javascript' => $Javascript, 
+                                        'php' => $php, 
+                                        'MySQL' => $MySQL, 
+                                        'Bootstrap' => $Bootstrap, 
+                                        'Symfonny' => $Symfony, 
+                                        'React' => $React,
+                                        'color' => $color,
+                                        'birthday' => $birthday,
+                                        'picture' => $picture,
+                                    );
                                 
-                                //erreurs//
-                                if ($table['picture']['size'] > 2000000) {
-                                    echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>'; 
-                                    session_destroy();
-                                }   
-
-                                    elseif ($table['picture']['error']== 4) {
-                                        echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';
+                                    //erreurs//
+                                    if ($table['picture']['size'] > 2000000) {
+                                        echo '<p class="alert-danger text-center py-3"> La taille de l\'image doit être inférieure à 2Mo </p>'; 
                                         session_destroy();
-                                    } 
+                                    }   
+
+                                        elseif ($table['picture']['error']== 4) {
+                                            echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';
+                                            session_destroy();
+                                        } 
                                     
-                                    elseif ($_FILES['userfile']['error'] == 3) {   
-                                    echo 'Error 3';
-                                    session_destroy();
-                                    }
-
-                                    elseif ($_FILES['userfile']['error'] == 1) {   
-                                        echo 'Error 1';
-                                        session_destroy();
-                                    }
-
-                                    elseif ($_FILES['userfile']['error'] == 6) {   
-                                        echo 'Error 6';
-                                        session_destroy();
-                                    }
-
-                                    elseif ($_FILES['userfile']['error'] == 7) {   
+                                        elseif ($_FILES['userfile']['error'] == 3) {   
                                         echo 'Error 3';
                                         session_destroy();
-                                    }
+                                        }
 
-                                    elseif ($table['picture']['type'] != 'image/png' && $table['picture']['type'] != 'image/jpeg' && $table['picture']['type'] != 'image/jpg') {
-                                        echo '<p class="alert-danger text-center py-3"> Extension ' .$_FILES['picture']['type']  .' non prise en charge </p>';
-                                        session_destroy();  
-                                    } 
+                                        elseif ($_FILES['userfile']['error'] == 1) {   
+                                            echo 'Error 1';
+                                            session_destroy();
+                                        }
+
+                                        elseif ($_FILES['userfile']['error'] == 6) {   
+                                            echo 'Error 6';
+                                            session_destroy();
+                                        }
+
+                                        elseif ($_FILES['userfile']['error'] == 7) {   
+                                            echo 'Error 3';
+                                            session_destroy();
+                                        }
+
+                                        elseif ($table['picture']['type'] != 'image/png' && $table['picture']['type'] != 'image/jpeg' && $table['picture']['type'] != 'image/jpg') {
+                                            echo '<p class="alert-danger text-center py-3"> Extension ' .$_FILES['picture']['type']  .' non prise en charge </p>';
+                                            session_destroy();  
+                                        } 
 
                                     // sinon données sauvegardées //
-                                else {
-                                    $dossier = "./upload/";
-                                    $fichier = $table['picture']['name'];
-                                    move_uploaded_file($table['picture']['tmp_name'], $dossier . $fichier);
-                                    echo '<p class="alert-success text-center py-3"> Données sauvegardées <p>';
-                                }
+                                    else {
+                                        $dossier = "./upload/";
+                                        $fichier = $table['picture']['name'];
+                                        move_uploaded_file($table['picture']['tmp_name'], $dossier . $fichier);
+                                        echo '<p class="alert-success text-center py-3"> Données sauvegardées <p>';
+                                    }
 
-                                // pour la liste Home//
-                                $filtre =array_filter($table);   
-                                $_SESSION['table'] = $filtre;
-                            }                
+                                    // pour la liste Home//
+                                    $filtre =array_filter($table);   
+                                    $_SESSION['table'] = $filtre;
+                                }                
 
+                                //Ajouter des données//
+                            else {echo '<a class="btn btn-secondary" role="button" href="./index.php?addmore">Ajouter plus de données</a>';}
                         ?>
    
                     </section>

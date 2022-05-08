@@ -165,47 +165,47 @@
                                             session_destroy();
                                         }   
 
-                                            elseif ($table['picture']['error']== 4) {
-                                                echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';
-                                                session_destroy();
-                                            } 
-                                    
-                                            elseif ($_FILES['userfile']['error'] == 3) {   
-                                                echo 'Error 3';
-                                                session_destroy();
-                                            }
+                                        elseif ($table['picture']['error']== 4) {
+                                            echo '<p class="alert-danger text-center py-3"> Aucun fichier n\'a été téléchargé </p>';
+                                            session_destroy();
+                                        } 
+                                
+                                        elseif ($_FILES['userfile']['error'] == 3) {   
+                                            echo 'Error 3';
+                                            session_destroy();
+                                        }
 
-                                            elseif ($_FILES['userfile']['error'] == 1) {   
-                                                echo 'Error 1';
-                                                session_destroy();
-                                            }
+                                        elseif ($_FILES['userfile']['error'] == 1) {   
+                                            echo 'Error 1';
+                                            session_destroy();
+                                        }
 
-                                            elseif ($_FILES['userfile']['error'] == 6) {   
-                                                echo 'Error 6';
-                                                session_destroy();
-                                            }
+                                        elseif ($_FILES['userfile']['error'] == 6) {   
+                                            echo 'Error 6';
+                                            session_destroy();
+                                        }
 
-                                            elseif ($_FILES['userfile']['error'] == 7) {   
-                                                echo 'Error 3';
-                                                session_destroy();
-                                            }
+                                        elseif ($_FILES['userfile']['error'] == 7) {   
+                                            echo 'Error 7';
+                                            session_destroy();
+                                        }
 
-                                            elseif ($table['picture']['type'] != 'image/png' && $table['picture']['type'] != 'image/jpeg' && $table['picture']['type'] != 'image/jpg') {
-                                                echo '<p class="alert-danger text-center py-3"> Extension ' .$_FILES['picture']['type']  .' non prise en charge </p>';
-                                                session_destroy();  
-                                            } 
+                                        elseif ($table['picture']['type'] != 'image/png' && $table['picture']['type'] != 'image/jpeg' && $table['picture']['type'] != 'image/jpg') {
+                                            echo '<p class="alert-danger text-center py-3"> Extension ' .$_FILES['picture']['type']  .' non prise en charge </p>';
+                                            session_destroy();  
+                                        } 
 
                                             // sinon données sauvegardées //
                                         else {
                                             $dossier = "./upload/";
                                             $fichier = $table['picture']['name'];
                                             move_uploaded_file($table['picture']['tmp_name'], $dossier . $fichier);
+                                            //bouton Home //
+                                            $filtre =array_filter($table); 
+                                            $_SESSION['table'] = $filtre;
                                             echo '<p class="alert-success text-center py-3"> Données sauvegardées <p>';
                                         }
 
-                                        // pour la liste Home//
-                                        $filtre =array_filter($table);   
-                                        $_SESSION['table'] = $filtre;
                                     }                
 
                                 //bouton ajouter des données et bouton ajouter des données//
